@@ -4,7 +4,7 @@
     <img src="https://i.imgur.com/waxVImv.png" alt="Oryx Video-ChatGPT">
 </p>
 
-#### [Hanoona Rasheed](https://github.com/hanoonaR), [Abdelrahman Shaker](https://amshaker.github.io), [Anqi Tang](https://www.linkedin.com/in/AnqiTang-3a8929169/), [Muhammad Maaz](https://www.muhammadmaaz.com), [Ming-Hsuan Yang](https://scholar.google.com.pk/citations?user=p9-ohHsAAAAJ&hl=en), [Salman Khan](https://salman-h-khan.github.io/), [Fahad Khan](https://sites.google.com/view/fahadkhans/home)
+#### [Hanoona Rasheed](https://github.com/hanoonaR), [Abdelrahman Shaker](https://amshaker.github.io), [Anqi Tang](https://www.linkedin.com/in/AnqiTang-3a8929169/), [Muhammad Maaz](https://www.mmaaz60.com), [Ming-Hsuan Yang](https://scholar.google.com.pk/citations?user=p9-ohHsAAAAJ&hl=en), [Salman Khan](https://salman-h-khan.github.io/), [Fahad Khan](https://sites.google.com/view/fahadkhans/home)
 
 #### **MBZUAI, University of California Merced, Google Research, Australian National University, Linköping University**
 
