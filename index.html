@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="VideoMathQA">
+  <meta name="keywords" content="multimodal video mathematical benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VideoMathQA</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <link rel="stylesheet" href="./static/css/video-player.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>
+
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <img src="static/images/icon.png" alt="GLaMM_face" width="120">
+            <h1 class="title is-1 publication-title">
+              <span style="color: #0f71cb;">VideoMathQA</span><br>
+              <span class="is-size-2">
+                Benchmarking Mathematical Reasoning<br>
+                via Multimodal Understanding in Videos
+              </span>
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- First Group -->
+              <div class="author-group">
+                <span class="author-block">
+                  <a href="https://github.com/hanoonaR" style="color:#f68946;font-weight:normal;">Hanoona Rasheed</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://amshaker.github.io" style="color:#f68946;font-weight:normal;">Abdelrahman Shaker</a>,
+                </span>
+                <span class="author-block">
+                  <a href="#" style="color:#f68946;font-weight:normal;">Anqi Tang</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.muhammadmaaz.com/" style="color:#008AD7;font-weight:normal;">Muhammad Maaz</a>,
+                </span>
+              </div>
+
+              <!-- Second Group -->
+              <div class="author-group">
+                <span class="author-block">
+                  <a href="https://faculty.ucmerced.edu/mhyang/" style="color:#f68946;font-weight:normal;">Ming-Hsuan Yang</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://salman-h-khan.github.io" style="color:#f68946;font-weight:normal;">Salman Khan</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://sites.google.com/view/fahadkhans/home" style="color:#f68946;font-weight:normal;">Fahad S. Khan</a>
+                </span>
+              </div>
+            <div class="is-size-5 publication-authors">
+              MBZUAI, University of California Merced, Google Research,<br>
+              Australian National University, Linköping University
+            </div>
+              </div>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2311.033565" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://huggingface.co/datasets/MBZUAI/VideoMathQA" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <p style="font-size:18px">🤗</p>
+                      </span>
+                      <span>Dataset</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/mbzuai-oryx/VideoMathQA" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Github</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/EvolvingLMMs-Lab/lmms-eval/tree/main/lmms_eval/tasks/videomathqa" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Eval (LMMs-Eval)</span>
+                    </a>
+                  </span>
+                </div>            
+              </div><!-- End of first .publication-links -->
+              <div class="column has-text-centered">
+                <div class="publication-links" style="margin-top: -20px;">
+                  <span class="link-block">
+                    <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <p style="font-size:18px">🏅</p>
+                      </span>
+                      <span>Leaderboard (Direct)</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#leaderboard-2" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <p style="font-size:18px">🏅</p>
+                      </span>
+                      <span>Leaderboard (CoT)</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <!-- <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;"> -->
+  <section class="section" style="background-color:#efeff081; padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="hero-body" style="padding: 0;">
+        <p class="subtitle has-text-justified is-size-5">
+          <strong>VideoMathQA</strong> is a benchmark designed to evaluate mathematical reasoning in real-world educational videos.
+          It requires models to interpret and integrate information from <strong>three modalities</strong>, visuals, audio, and text, across time.
+          The benchmark tackles the <strong>needle-in-a-multimodal-haystack</strong> problem, where key information is sparse and spread across different modelities and moments in the video.
+        </p>
+      </div>
+    </div>
+
+  <!-- CANVA PRESENTATION -->
+  <!-- Canva Presentation Embed with Fixed Size -->
+  <div style="max-width: 1024px; margin: 2em auto;">
+    <div style="position: relative; width: 100%; padding-top: 56.25%; box-shadow: 0 2px 8px rgba(63,69,81,0.16); border-radius: 8px; overflow: hidden;">
+      <iframe
+        loading="lazy"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; margin: 0; padding: 0;"
+        src="https://www.canva.com/design/DAGor5rEcnw/sGvGVeIGO-Pu84jLbYMsNQ/view?embed"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  </section>
+  
+  <!-- HIGHLIGHTS -->
+  <section class="section">
+  <!-- <section class="section" style="background-color:#efeff081"> -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">🔥 Highlights</h2>
+          <div class="content has-text-justified">
+            <ol type="1">
+              <li><span style="color:#0f71cb"><b>Multimodal Reasoning Benchmark:</b></span>  
+                VideoMathQA introduces a challenging <strong>“needle-in-a-multimodal-haystack”</strong> setup where models must reason across <strong>visuals, text and audio</strong>. Key information is <strong>sparsely distributed across modalities and time</strong>, requiring strong performance in fine-grained visual understanding, multimodal integration, and reasoning.
+              </li>
+              <br>
+              <li><span style="color:#0f71cb"><b>Three Types of Reasoning:</b></span>  
+                Questions are categorized into:  
+                <strong>Problem Focused</strong>, where the question is explicitly stated and solvable via direct observation and reasoning from the video;  
+                <strong>Concept Transfer</strong>, where a demonstrated method or principle is adapted to a newly posed problem;  
+                and <strong>Deep Instructional Comprehension</strong>, which requires understanding long-form instructional content, interpreting partially worked-out steps, and completing the solution.
+              </li>
+              <br>
+              <li><span style="color:#0f71cb"><b>Diverse Evaluation Dimensions:</b></span>  
+                Each question is evaluated across four axes: (i) <strong>mathematic concepts</strong>, 10 domains such as geometry, statistics, arithmetics and charts; (ii) <strong>video duration</strong> ranging from 10s to 1hour long categorized as short, medium, long; (iii) <strong>difficulty level</strong>; and (iv) <strong>reasoning type</strong>. This structure captures diversity in content, length, complexity, and reasoning depth.
+              </li>
+              <br>
+              <li><span style="color:#0f71cb"><b>High-Quality Human Annotations:</b></span>  
+                The benchmark includes <strong>420 expert-curated questions</strong>, each with five answer choices, a correct answer, and detailed <strong>chain-of-thought (CoT) steps</strong>. Over <strong>2,945 reasoning steps</strong> have been manually written, reflecting <strong>920+ hours</strong> of expert annotation effort with rigorous quality control.
+              </li>
+            </ol>
+          </div>
+
+        <!-- Figure Below Highlights -->
+        <div class="mt-6 has-text-centered">
+          <img src="static/images/intro_fig.png" alt="Highlight Figure" style="max-width: 100%; height: auto;">
+          <p class="mt-2" style="text-align: justify;">
+            The foundation of our benchmark is the “needle-in-a-multimodal-haystack” challenge, capturing the core difficulty of cross-modal reasoning across time from visual, textual, and audio streams. Built on this, VideoMathQA categorizes each question along four key dimensions: reasoning type, mathematical concept, video duration, and difficulty.
+          </p>
+        </div>
+        <!-- End Figure -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Samples -->
+<section class="section" style="background-color:#efeff081; padding-top: 1.5rem;">
+<!-- <section class="section"> -->
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Benchmark Examples</h2>
+
+    <!-- Problem Focused -->
+    <h3 class="title is-4 mt-6 mb-4 has-text-centered">Problem Focused</h3>
+    <div class="columns is-multiline">
+      <!-- type1-ex1 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_1_ex1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                What is the minimum angle made by AE with the flat surface?
+              </p>
+              <ul>
+                <li>A. 22 degree</li>
+                <li>B. 30 degree</li>
+                <li>C. 37 degree</li>
+                <li>D. 45 degree</li>
+                <li>E. 15 degree</li>
+              </ul>
+              <p><strong>Answer:</strong> D. 45 degree</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The problem involves a square ABCD lying flat on a horizontal surface, with two flaps AE and AF attached along sides AB and AD, respectively. Each flap is part of a regular hexagon.</li>
+                  <li>The two hexagonal flaps are rotated upward about sides AB and AD by an angle T, until points E and F coincide, meaning that AE = AF.</li>
+                  <li>The task is to determine the angle between flap AE and the flat surface. Since a regular hexagon has an external angle of 60°, which remains unchanged during the rotation, we can imagine that a 30-60-90 triangle is formed, with AE as the hypotenuse.</li>
+                  <li>In a 30-60-90 triangle, the hypotenuse is twice the shorter leg, and the longer leg is √3 times the shorter leg. Here, AE = 2, so the short leg is 1, and the long leg is √3.</li>
+                  <li>Set up a coordinate system with point A as the origin and the y-axis perpendicular to the square. After rotation, the coordinates of point E become (1, √3 cos T, √3 sin T), and the coordinates of point F become (√3 cos T, 1, √3 sin T).</li>
+                  <li>For points E and F to coincide, their coordinates must be identical. This leads to the equation 1 = √3 cos T, which yields E = (1, 1, √2) after substitution.</li>
+                  <li>Based on the coordinates of E, we can form a spatial right triangle with AE as the hypotenuse. Its vertical height is √2, and the projection of its base also has length √2, forming an isosceles right triangle.\", \"8\": \"In an isosceles right triangle, both acute angles are 45 degrees.</li>
+                  <li>Therefore, the minimum angle that flap AE makes with the flat surface is 45 degrees.</li>
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- type1-ex2 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_1_ex2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                Determine the shortest path distance from the lowest node to the topmost node in the given weighted graph.
+              </p>
+              <ul>
+                <li>A. 12</li>
+                <li>B. 7</li>
+                <li>C. 5</li>
+                <li>D. 13</li>
+                <li>E. 9</li>
+              </ul>
+              <p><strong>Answer:</strong> E. 9</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The goal is to find the shortest path from the bottom node (source) to the topmost node in the weighted directed graph.</li>
+                  <li>Initialize: Set the distance to the source node to 0, and all other nodes to infinity. Mark all nodes as unvisited.</li>
+                  <li>From the source (bottom) node, update the tentative distances of its three neighbors: left (edge 8), middle (edge 1), right (edge 7). Their distances become 8, 1, and 7, respectively.</li>
+                  <li>Pick the unvisited node with the smallest tentative distance, which is the middle node just above the source (distance 1).</li>
+                  <li>From this node, update its neighbors: going left (edge 4, total 1+4=5), going middle (edge 5, total 1+5=6). These are the new shortest known distances to those positions.</li>
+                  <li>Pick the next unvisited node with the smallest distance, which is the left node just above the previous step (distance 5). From here, move to the topmost node using the edge with weight 4. The total distance is 5+4=9.</li>
+                  <li>Check other possible moves from each node to ensure no shorter path exists to the topmost node. All alternative paths have greater total weights.</li>
+                  <li>Mark the topmost node as visited with the shortest path found so far.</li>
+                  <li>The shortest path from the source (bottom node) to the topmost node has total weight 9. This shortest path uses these edges in order: bottom → middle (edge 1), middle → left (edge 4), left → topmost (edge 4), for a total of 1 + 4 + 4 = 9.</li>
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- type1-ex3 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_1_ex3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                The video shows data on how prices of some essentials rose significantly from 2021 to 2022 due to global inflationary pressures. Later in December 2022, prices for some of those items began to decline, showing early signs of deflation or correction.<br>
+                Using these data, compare how the prices of the following three categories change: Airline fares, Fuel oil, and Utility gas (in this order)?
+              </p>
+              <ul>
+                <li>A. +30%, -3%; +40%, -16%; +20%, -11%</li>
+                <li>B. +28%, -3%; +41%, -17%; +19%, -4%</li>
+                <li>C. +28%, -3%; +41%, -16%; +19%, +5%</li>
+                <li>D. +30%, -5%; +45%, -15%; +20%, -10%</li>
+                <li>E. +28%, -3%; +41%, -17%; +19%, +3%</li>
+              </ul>
+              <p><strong>Answer:</strong>B. +28%, -3%; +41%, -17%; +19%, -4%</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The video investigates the causes and dynamics of inflation over the past few years, focusing on how different products experienced price surges due to various global and domestic factors such as supply chain disruptions, labor costs, material costs, and corporate pricing strategies. It aims to break down inflation into understandable components by looking at specific categories in the Consumer Price Index (CPI).</li>
+                  <li>The video initially examines broad inflation metrics, introducing CPI and how it's calculated. Towards the middle of the video begins analyzing which goods and services have seen major price increases from December 2021 to December 2022. Later towards the end of the video, the narrative shifts to a discussion about how some of those previously inflated categories started dropping in price, signaling early signs of correction.</li>
+                  <li>To answer the question, we need two charts, one from each section. First one at 2:44 showing annual inflation and the other monthly changes in December 2022—need to be interpreted, second chart at around 7:59 showing monthly changes in December 2022 after correction.</li>
+                  <li>The first bar chart shows airline fares increased by approximately +28% from December 2021 to December 2022.</li>
+                  <li>The second chart shows airline fares decreased by approximately -3% in December 2022.</li>
+                  <li>In the first chart, fuel oil shows the largest visible increase, reaching +41% over the year.</li>
+                  <li>In the second chart, fuel oil shows a strong decline, approximately -17% in December 2022.</li>
+                  <li>Utility (piped) gas in the first chart shows an increase of around +19% between December 2021 and December 2022.</li>
+                  <li>In the second chart, piped gas actually increases again in December 2022 by about +3%, making it one of the few items that didnt show price correction that month.</li>
+                  <li>Summarizing all three: Airline fares: +28%, -3%; Fuel oil: +41%, -17%; Utility gas: +19%, +3%. The best answer choice matching this data is: +28%, -3%; +41%, -17%; +19%, +3%."</li>
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Concept Transfer -->
+    <div class="container">
+      <h3 class="title is-4 mt-6 mb-4 has-text-centered">Concept Transfer</h3>
+    </div>
+    <div class="columns is-multiline">
+      <!-- type2-ex1 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_2_ex1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                Find the area of each small parallelogram when one side of the parallelogram is divided to three equal parts, and other side to 5 equal parts.
+              </p>
+              <ul>
+                <li>A. 1/12</li>
+                <li>B. 1/15</li>
+                <li>C. 1/14</li>
+                <li>D. 1/13</li>
+                <li>E. 1/16</li>
+              </ul>
+              <p><strong>Answer:</strong> E. 1/16</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The video begins with a large parallelogram that has a total area of 1 square unit and shows how its opposite sides are divided into 3 and 4 equal parts respectively.</li>
+                  <li>Lines are drawn connecting the division points on opposite sides, resulting in a pattern of small parallelograms inside the large one, and the video explores what the area of each of these small parallelograms is.</li>
+                  <li>The solution proceeds visually by dissecting the large parallelogram into three pieces and rearranging them without changing the overall area, preserving the total area of 1 square unit after rearrangement.</li>
+                  <li>After rearrangement, the new shape is made up of several small parallelograms that are all visually identical in size and shape, and by counting these, it is shown that there are exactly 13 small parallelograms.</li>
+                  <li>Since these 13 parallelograms together still occupy an area of 1 square unit, the area of one such parallelogram is calculated as 1 divided by 13, giving the result 1/13 square units.</li>
+                  <li>In the problem given to solve, the same approach is applied but with a different configuration where the sides of the large parallelogram are now divided into 3 and 5 equal parts respectively.</li>
+                  <li>Using the pattern observed earlier, the number of small parallelograms formed by connecting division points is calculated using the formula N = p * q + 1, where p and q are the number of divisions on each pair of opposite sides.</li>
+                  <li>Substituting the values p = 3 and q = 5 into the formula gives N = 3 * 5 + 1 = 15 + 1 = 16, so there will be 16 identical small parallelograms formed in this new arrangement.</li>
+                  <li>Since the total area of the original parallelogram remains 1 square unit and is now equally divided among 16 small parallelograms, each one must have an area of 1/16 square units.</li>
+                  <li>Therefore, by extending the visual reasoning and applying the general formula from the earlier case, the area of each small parallelogram in the 3-by-5 division setup is determined to be 1/16 square units.</li>
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- type2-ex2 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_2_ex2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                How many triangles are there in the rightmost diamond-like figure from the final set of examples shown in the video?
+              </p>
+              <ul>
+                <li>A. 49</li>
+                <li>B. 48</li>
+                <li>C. 36</li>
+                <li>D. 60</li>
+                <li>E. 42</li>
+              </ul>
+              <p><strong>Answer:</strong> B. 48</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The video demonstrates a method for counting the total number of triangles in various complex geometric figures.</li>
+                  <li>The core principle learned from these demonstarted examples is to systematically identify bases (or segments that act as bases) and the apexes associated with them. For any given base (or layer acting as a base) that is subdivided, the sum of the numbered subdivisions (1 + 2 + ... + n) gives the number of triangles sharing that apex and resting on that base/layer. When multiple such bases or layers exist, their contributions are typically summed up, or a multiplication factor is used if the structure is regular.</li>
+                  <li>The question refers to the rightmost diamond-like figure presented in the final set of examples (shown around 03:19, next to a similar diamond figure that is explicitly discussed with 5 divisions).</li>
+                  <li>First, identify the number of horizontal divisions in the diamond-like figure. Each horizontal division contributes to the formation of triangles.</li>
+                  <li>Label the divisions from 1 to 6, as there are 6 divisions in the figure. This means you have numbers 1, 2, 3, 4, 5, and 6.</li>
+                  <li>Calculate the sum of these numbers: 1 + 2 + 3 + 4 + 5 + 6 = 21. This sum represents the number of triangles formed by these divisions on one side of the base.</li>
+                  <li>Since the figure has triangles on both the upper and lower sides of the base, multiply the sum by 2: 21 * 2 = 42. This accounts for triangles on both sides of the base.</li>
+                  <li>Identify an additional line in the figure that converges triangles from both the upper and lower sides. This line allows for the formation of 6 more triangles.</li>
+                  <li>Add these additional 6 triangles to the previous total: 42 + 6 = 48.</li>
+                  <li>Thus, the total number of triangles in the rightmost diamond-like figure is 48.</li>
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- type2-ex3 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_2_ex3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                In the final example shown in the video, the structure is made up of identical T-shaped blocks. Based on the examples shown earlier on how to solve cube counting, how many individual T-shaped blocks make up the entire structure?
+              </p>
+              <ul>
+                <li>A. 5</li>
+                <li>B. 6</li>
+                <li>C. 7</li>
+                <li>D. 8</li>
+                <li>E. 9</li>
+              </ul>
+              <p><strong>Answer:</strong> B. 6</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The video focuses on how to solve visual reasoning problems involving 3D block structures. The instructor demonstrates several examples that build the foundation for answering questions about how many identical blocks make up a complex structure.</li>
+                  <li>From these examples, we learn five key principles: (1) use a systematic method to identify visible blocks (e.g., by layers or numbering), (2) apply the gravity rule to ensure unsupported blocks are not assumed, (3) only count hidden blocks if they are structurally necessary, (4) assume block uniformity within each structure, and (5) use logical deduction to infer the presence of essential but non-visible blocks.</li>
+                  <li>The question, starting around the 7th minute involves a structure built entirely from identical T-shaped blocks, and asks how many such blocks are present, applying the same reasoning as in the earlier cube-counting examples.</li>
+                  <li>We start by identifying the T-shaped blocks in the structure. The structure is composed entirely of these identical T-shaped blocks.</li>
+                  <li>First, we count the obvious T-shaped blocks at the front of the structure. There are two blocks that stand alone, which we label as block 1 and block 2.</li>
+                  <li>Next, we identify another T-shaped block on the base level, which we label as block 3.</li>
+                  <li>We notice a T-shaped block that is one layer higher than block 3. We label this as block 4, and recognize that there must be another block underneath it to support it, which we label as block 5.</li>
+                  <li>Finally, we identify one more T-shaped block positioned upside down at the back of the structure, which we label as block 6.</li>
+                  <li>After accounting for all visible and necessary supporting blocks, we verify that there are no additional hidden blocks. The total count of T-shaped blocks in the structure is 6.</li>
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Deep Comprehension -->
+    <div class="container">
+      <h3 class="title is-4 mt-6 mb-4 has-text-centered">Deep Instructional Comprehension</h3>
+    </div>
+    <div class="columns is-multiline">
+      <!-- type3-ex1 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_3_ex1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                Based on the lecture, complete the solution to find the volume of the solid.
+              </p>
+              <ul>
+                <li>A. π/5</li>
+                <li>B. 4π/3</li>
+                <li>C. 4π/5</li>
+                <li>D. 2π/3</li>
+                <li>E. 2π/5</li>
+              </ul>
+              <p><strong>Answer:</strong> A. π/5</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The Shell Method is a technique to find the volume of a solid of revolution by summing cylindrical shells. It uses representative rectangles drawn parallel to the axis of revolution: vertical rectangles (dx) for vertical axes like the y-axis, and horizontal rectangles (dy) for horizontal axes like the x-axis. </li>
+                  <li>In the earlier example, the instructor revolves a region around the y-axis using vertical rectangles and integration with respect to x. In this problem, the region is revolved around the x-axis, so we use horizontal rectangles and integrate with respect to y using the formula: V = 2π ∫[c to d] r(y)h(y) dy. Our task is to identify the functions bounding the region in terms of y, determine the radius r(y), the height of the shells h(y), and the limits of integration c and d along the y-axis.</li>
+                  <li>To find the volume of the solid formed by revolving the region enclosed by y = x^2, x = 1, and y = 0 around the y-axis using the shell method, we start by setting up the integral for the shell method. The formula for the shell method when revolving around the y-axis is V = 2π ∫[a to b] (radius)(height) dy.</li>
+                  <li>Identify the bounds of integration. The region is bounded below by y=0. The upper bound is where x=√y intersects x=1. So, 1 = √y, which means y = 1^2 = 1. Thus, the limits of integration are from y=0 to y=1.</li>
+                  <li>Determine the radius and height for the shell method. Radius r(y): The radius is the distance from the x-axis (axis of revolution) to a horizontal rectangle, which is simply y. So, r(y) = y. Now to Height h(y): The height of the shell (length of the horizontal rectangle) is the difference between the rightmost curve (x=1) and the leftmost curve (x=√y). So, h(y) = 1 - √y.</li>
+                  <li>Substitute the radius and height into the integral: <br> V = 2π ∫[0 to 1] (y)(1-√y) dy <br> V = 2π ∫[0 to 1] (y)(1-y^0.5) dy <br> V = 2π ∫[0 to 1] (y-y^3/2) dy.</li>
+                  <li>Calculate the Definite Integral: <br> V = 2π [ (y²)/2 - (y^(5/2))/(5/2) ] from 0 to 1<br> V = 2π [ (y²)/2 - (2/5)y^(5/2) ] from 0 to 1<br> V = 2π [(1²/2 - (2/5)(1)^(5/2)) - (0²/2 - (2/5)(0)^(5/2)) ]<br> V = 2π [ (1/2 - 2/5) - (0 - 0) ]<br> V = 2π [ 5/10 - 4/10 ]<br> V = 2π [ 1/10 ]</li>
+                  <li>Thus, the volume of the solid of revolution is 2π/10, which simplifies to π/5.</li>
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- type3-ex2 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_3_ex2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                Observe the strategy used in the video examples. Apply the same steps to complete the remaining part of the problem.
+              </p>
+              <ul>
+                <li>A. (3/2) arctan(x - 1) + (1/2) * sin(2 arctan(x - 1)) - (1/2) * cos(2 arctan(x - 1)) + C</li>
+                <li>B. arctan(x - 1) + x/(x² - 2x + 2) + C</li>
+                <li>C. (3/2)arctan(x - 1) + 1/2 * ((x - 1) / ((x-1)² + 1)) + C</li>
+                <li>D. (1/2) arctan(x - 1) + 1/2 * ((x - 1)/(x² - 2x + 2)) + C</li>
+                <li>E. (3/2) arctan(x - 1) + 1/2 * ((x² - x - 1)/(x² - 2x + 2)) + C</li>
+              </ul>
+              <p><strong>Answer:</strong> E. (3/2) arctan(x - 1) + 1/2 * ((x² - x - 1)/(x² - 2x + 2)) + C</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The video shows multiple examples of how to evaluate integrals using trigonometric substitution. To answer the question we need to first locate the problem that we need to complete. After solving four problems, at around the 34th minute, the presenter discusses a fifth problem. This is what we need to solve. <br>We are asked to evaluate the integral:<br>∫ (x² + 1) / (x² - 2x + 2)² dx<br>This is a rational function, and the denominator is a quadratic squared. The key insight is to complete the square in the denominator, which will help us apply a trigonometric substitution later on.</li>
+
+                  <li>Now we need to understand, the part of the solution that is shown in the video. We begin by completing the square in the denominator of the integrand:<br>x² - 2x + 2 = (x - 1)² + 1<br>This reformulation allows us to use trigonometric substitution, which is ideal when the expression fits the identity 1 + tan²(θ) = sec²(θ). So, we let:<br>x - 1 = tan(θ)<br>Then:<br>x = tan(θ) + 1<br>dx = sec²(θ) dθ<br>We now substitute into the original integral:<br>∫ (x² + 1) / [(x - 1)² + 1]² dx<br>→ ∫ [(tan(θ) + 1)² + 1] / [tan²(θ) + 1]² * sec²(θ) dθ<br>So the full transformed integral becomes:<br>∫ [(tan(θ) + 1)² + 1] / [sec²(θ)]² * sec²(θ) dθ.</li>
+
+                  <li>Expand and Simplify the Integrand<br>From the previous step, we now have the transformed integral:<br>∫ [(tan(θ) + 1)² + 1] / sec⁴(θ) * sec²(θ) dθ<br>Let us first expand the numerator:<br>(tan(θ) + 1)² + 1 = tan²(θ) + 2tan(θ) + 2</li>
+
+                  <li>This gives us:<br>∫ [tan²(θ) + 2tan(θ) + 2] * sec²(θ) / sec⁴(θ) dθ<br>Now simplify the secants:<br>sec²(θ) / sec⁴(θ) = 1 / sec²(θ) = cos²(θ)<br>So the integral becomes:<br>∫ [tan²(θ) + 2tan(θ) + 2] * cos²(θ) dθ<br>This is where the algebra begins to simplify and the trigonometric identity work intensifies.</li>
+
+                  <li>Now we can express everything in sine and cosine to make integration easier and to avoid the complexity of secants.<br>Using identities:<br>tan(θ) = sin(θ) / cos(θ)<br>tan²(θ) = sin²(θ) / cos²(θ)<br>We apply these to the expression:<br>tan²(θ) * cos²(θ) = sin²(θ)<br>2tan(θ) * cos²(θ) = 2sin(θ)cos(θ)<br>2 * cos²(θ) stays as-is<br>Now the integral becomes:<br>∫ [sin²(θ) + 2sin(θ)cos(θ) + 2cos²(θ)] dθ<br>This prepares us for identity-based grouping and antiderivatives in the next steps.</li>
+
+                  <li>Group and Apply Trig Identities<br>Group the expressions and apply known identities:<br>sin²(θ) + cos²(θ) = 1<br>2sin(θ)cos(θ) = sin(2θ)<br>Remaining cos²(θ) is handled using the half-angle identity<br>So:<br>= ∫ [1 + sin(2θ) + cos²(θ)] dθ<br>Now use the identity:<br>cos²(θ) = (1 + cos(2θ)) / 2<br>This gives:<br>∫ [(3/2) + sin(2θ) + (1/2)cos(2θ)] dθ</li>
+
+                  <li>Integrate Each Term<br>Now we perform term-by-term integration:<br>∫ (3/2) dθ = (3/2)θ<br>∫ sin(2θ) dθ = -1/2 cos(2θ)<br>∫ (1/2)cos(2θ) dθ = 1/4 sin(2θ)<br>Final result of the integral in terms of θ:<br>(3/2)θ - (1/2)cos(2θ) + (1/4)sin(2θ) + C</li>
+
+                  <li>Use Triangle to Back Substitute<br>We now return to x by constructing a triangle.<br>Since x - 1 = tan(θ), we set up a right triangle where:<br>Opposite = x - 1<br>Adjacent = 1<br>Hypotenuse = √[(x - 1)² + 1] = √(x² - 2x + 2)<br>From the triangle:<br>sin(θ) = (x - 1) / √(x² - 2x + 2)<br>cos(θ) = 1 / √(x² - 2x + 2)<br>Use identities:<br>sin(2θ) = 2sin(θ)cos(θ)<br>cos(2θ) = cos²(θ) - sin²(θ)<br>Substitute all these into the expression.</li>
+
+                  <li>Express in Terms of x<br>Substituting back:<br>θ = arctan(x - 1)<br>cos(2θ) = [1 - (x - 1)²] / (x² - 2x + 2)<br>sin(2θ) = 2(x - 1) / (x² - 2x + 2)<br>So the expression becomes:<br>(3/2) arctan(x - 1) - (1/2)[1 - (x - 1)² / (x² - 2x + 2)] + (1/2)[(x - 1) / (x² - 2x + 2)] + C<br>Simplify the middle term:<br>(1 - (x - 1)²) = (2x - x²)<br>Combine all:<br>= (3/2) arctan(x - 1) + (1/2)((x² - x - 1)/(x² - 2x + 2)) + C</li>
+
+                  <li>Final Simplification Using Long Division<br>We simplify the rational term by dividing:<br>(x² - x - 1) / (x² - 2x + 2)<br>Performing long division:<br>The result is:<br>1 + (x - 3)/(x² - 2x + 2)<br>So we rewrite the integral as:<br>(3/2) arctan(x - 1) + (1/2) * [1 + (x - 3)/(x² - 2x + 2)] + C<br>Combine constants into a new constant D:<br>Final Answer:<br>(3/2) arctan(x - 1) + (1/2)(x - 3)/(x² - 2x + 2) + D,<br>where D = C + 1/2</li>
+
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- type3-ex3 -->
+      <div class="column is-one-third">
+        <div class="box" style="height: auto; background: black; border-radius: 10px; overflow: hidden; padding: 0;">
+          <video controls preload="metadata" style="width: 100%; height: 270px; object-fit: contain; background: black;">
+            <source src="static/videos/case_3_ex3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <div style="padding: 15px; background: #f9f9f9; color: black;">
+            <button class="button is-small is-info is-light" onclick="this.nextElementSibling.classList.toggle('is-hidden')">
+              Show Question & Reasoning
+            </button>
+            <div class="content is-hidden" style="margin-top: 10px;">
+              <p><strong>Question:</strong><br>
+                Based on the lecture, complete the simplification of the next expression.
+              </p>
+              <ul>
+                <li>A. n³</li>
+                <li>B. √n (n/e)ⁿ</li>
+                <li>C. 2ⁿ / √n</li>
+                <li>D. n!</li>
+                <li>E. 2ⁿ</li>
+              </ul>
+              <p><strong>Answer:</strong> C. 2ⁿ / √n</p>
+              <details>
+                <summary><strong>Show Reasoning Steps</strong></summary>
+                <ol>
+                  <li>The video is from an MIT lecture where the instructor is solving a set of problems involving asymptotic analysis. Around the 14-minute mark, the instructor focuses on a specific function involving a binomial coefficient and begins the detailed process of estimating its growth rate using mathematical tools.</li>
+                  <li>The blackboard lists five functions labeled f₁ through f₅: f₁ = 2ⁿ, f₂ = n³, f₃ = (n choose n/2), f₄ = n!, and f₅ = (n choose 3). The instructor chooses to analyze f₃, which is the central function of interest in this problem, and aims to determine its asymptotic growth using Stirling's approximation.</li>
+                  <li>To begin, rewrite the binomial coefficient using its factorial definition: (n choose n/2) = n! / [(n/2)! · (n/2)!]. This step prepares the expression for the application of Stirling's approximation by expressing all parts in terms of factorials.</li>
+                  <li>Now, recall Stirling's approximation: n! ≈ √(2πn) · (n/e)ⁿ. Using this, the numerator becomes √(2πn) · (n/e)ⁿ, and the denominator becomes [√(2π(n/2)) · (n/2e)^(n/2)]², since both (n/2)! terms are squared.</li>
+                  <li>The squared denominator results in two parts: First, [√(2π(n/2))]² = πn, because the square of the square root eliminates the radical and doubles the argument. Second, [(n/2e)^(n/2)]² = (n/2e)ⁿ, because the exponents add when squaring. So the full denominator becomes πn · (n/2e)ⁿ.</li>
+                  <li>Now, simplify the exponential expressions in the numerator and denominator. The term (n/e)ⁿ / (n/2e)ⁿ simplifies to (n / (n/2))ⁿ = 2ⁿ, since the eⁿ terms cancel and n / (n/2) = 2.</li>
+                  <li>The square root terms simplify as well. √(2πn) / πn = √2 / √(πn), because √(2πn) stays in the numerator and πn remains in the denominator. This simplifies the entire expression to: (n choose n/2) ≈ (√2 / √(πn)) · 2ⁿ.</li>
+                  <li>In asymptotic analysis, constant factors such as √2 and π are not significant. Therefore, the main contribution to the growth rate comes from 2ⁿ / √n, while constants are suppressed in Θ-notation.</li>
+                  <li>Thus, the correct simplification is: Θ(2ⁿ / √n).</li>
+                  <li>Final Answer: <strong>C. 2ⁿ / √n</strong></li>
+                </ol>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const table2 = document.querySelector("#results-cot");
+    const tbody2 = table2.querySelector("tbody");
+
+    const rows2 = Array.from(tbody2.querySelectorAll("tr"));
+
+    rows2.sort((a, b) => {
+      const valA = parseFloat(a.children[6].innerText) || 0;
+      const valB = parseFloat(b.children[6].innerText) || 0;
+      return valB - valA;
+    });
+
+    rows2.forEach((row, index) => {
+      const modelCell = row.children[1];
+      if (index === 0) {
+        modelCell.innerHTML += " 🥇";
+      } else if (index === 1) {
+        modelCell.innerHTML += " 🥈";
+      } else if (index === 2) {
+        modelCell.innerHTML += " 🥉";
+      }
+      tbody2.appendChild(row);
+    });
+
+    updateRowNumbersResultsCot();
+
+    table2.addEventListener("click", updateRowNumbersResultsCot);
+  });
+
+  function updateRowNumbersResultsCot() {
+    const rows = document.querySelectorAll("#results-cot tbody tr");
+    rows.forEach((row, index) => {
+      row.querySelector("td").innerText = index + 1;
+    });
+  }
+</script>
+
+
+<!-- Table CoT -->
+<section class="section">
+<!-- <section class="section" style="background-color:#efeff081; padding-top: 1.5rem;"> -->
+  <div class="container">
+    
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+        <div class="content"></div>
+        <h2 class="title is-3" id="leaderboard-2">🏅 VideoMathQA Leaderboard - Chain-of-Thought Reasoning 🧠</h2>
+          <p class="mt-3">Accuracy on the VideoMathQA benchmark using using Chain-of-Thoughts (CoT) reasoning for MCQ and Multi-Binary tasks, with and without subtitles.<br>
+            Shows model performance across mathematical concepts and video lengths.  This leaderboard is sorted by results on Multi-Binary with subtitles.
+          </p>
+        
+        <!-- <table class="table is-bordered is-striped is-hoverable results-table" id="results_cot" style="margin-left: auto; margin-right: auto;"> -->
+        <table class="js-sort-table" id="results-cot" style="margin-left: auto; margin-right: auto;">
+        <!-- <table class="js-sort-table table is-bordered is-striped is-hoverable results-table" id="results_cot" style="margin-left: auto; margin-right: auto;"></table> -->
+          <thead>
+            <tr>
+              <th rowspan="2">#</th>
+              <th rowspan="2">Models</th>
+              <th rowspan="2">Size</th>
+              <th colspan="2">MCQ</th>
+              <th colspan="2">MBin</th>
+              <th colspan="10">Mathematic Concepts</th>
+              <th colspan="3">Duration</th>
+              <th rowspan="2">CoT<br>Step<br>Score</th>
+            </tr>
+            <tr>
+                <th><strong>V</strong></th>
+                <th><strong>+Sub</strong></th>
+                <th><strong>V</strong></th>
+                <th><strong>+Sub</strong></th>
+                <th><strong>GAng</strong></th>
+                <th><strong>GAre</strong></th>
+                <th><strong>GLen</strong></th>
+                <th><strong>Chart</strong></th>
+                <th><strong>Stat</strong></th>
+                <th><strong>Arth</strong></th>
+                <th><strong>Topo</strong></th>
+                <th><strong>Grph</strong></th>
+                <th><strong>Cntg</strong></th>
+                <th><strong>Pzle</strong></th>
+                <th><strong>Short</strong></th>
+                <th><strong>Med</strong></th>
+                <th><strong>Long</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">Video-R1</b></td>
+              <td>7B</td>
+              <td>23.8</td><td>27.6</td><td>18.1</td><td>20.0</td>
+              <td>13.0</td><td>26.8</td><td>23.5</td><td>9.3</td><td>13.0</td><td>34.6</td><td>20.0</td><td>16.7</td><td>18.4</td><td>16.7</td>
+              <td>21.6</td><td>26.0</td><td>11.4</td><td>3.9</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">LLaVA-Video</b></td>
+              <td>7B</td>
+              <td>26.4</td><td>23.6</td><td>20.0</td><td>16.0</td>
+              <td>4.4</td><td>15.5</td><td>23.5</td><td>16.0</td><td>21.7</td><td>7.7</td><td>26.7</td><td>0.0</td><td>21.1</td><td>18.5</td>
+              <td>16.4</td><td>16.9</td><td>14.4</td><td>2.7</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">Qwen2.5-VL</b></td>
+              <td>7B</td>
+              <td>25.2</td><td>29.5</td><td>17.6</td><td>18.3</td>
+              <td>13.0</td><td>15.5</td><td>11.8</td><td>20.0</td><td>21.7</td><td>36.5</td><td>13.3</td><td>16.7</td><td>10.5</td><td>16.7</td>
+              <td>16.4</td><td>20.1</td><td>18.2</td><td>3.7</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL3</b></td>
+              <td>8B</td>
+              <td>28.8</td><td>26.9</td><td>17.9</td><td>20.0</td>
+              <td>17.4</td><td>22.5</td><td>27.5</td><td>13.3</td><td>4.4</td><td>17.3</td><td>13.3</td><td>16.7</td><td>7.9</td><td>24.1</td>
+              <td>19.4</td><td>23.4</td><td>9.9</td><td>3.4</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">LLaVA-Video</b></td>
+              <td>72B</td>
+              <td>23.6</td><td>29.3</td><td>14.8</td><td>18.6</td>
+              <td>8.7</td><td>22.5</td><td>17.7</td><td>14.7</td><td>8.7</td><td>21.2</td><td>26.7</td><td>11.1</td><td>26.3</td><td>20.4</td>
+              <td>17.2</td><td>21.4</td><td>16.7</td><td>3.1</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">LLaVA-OV</b></td>
+              <td>72B</td>
+              <td>23.3</td><td>26.9</td><td>14.3</td><td>18.1</td>
+              <td>8.7</td><td>14.1</td><td>19.6</td><td>13.3</td><td>21.7</td><td>26.9</td><td>20.0</td><td>22.2</td><td>10.5</td><td>25.9</td>
+              <td>15.7</td><td>23.4</td><td>14.4</td><td>3.2</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">Qwen2.5-VL</b></td>
+              <td>72B</td>
+              <td>37.4</td><td>36.9</td><td>24.5</td><td>28.6</td>
+              <td>30.4</td><td>31.0</td><td>31.4</td><td>24.0</td><td>21.7</td><td>50.0</td><td>13.3</td><td>22.2</td><td>15.8</td><td>25.9</td>
+              <td>27.6</td><td>34.4</td><td>22.7</td><td>5.0</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL3</b></td>
+              <td>78B</td>
+              <td>34.1</td><td>37.1</td><td>25.2</td><td>27.9</td>
+              <td>39.1</td><td>39.4</td><td>33.3</td><td>13.3</td><td>26.1</td><td>23.1</td><td>33.3</td><td>22.2</td><td>10.5</td><td>40.7</td>
+              <td>28.4</td><td>36.4</td><td>17.4</td><td>4.9</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">Claude-3.7-sonnet</b></td>
+              <td>-</td>
+              <td>24.8</td><td>29.5</td><td>12.1</td><td>19.3</td>
+              <td>34.8</td><td>29.6</td><td>19.6</td><td>4.0</td><td>26.1</td><td>13.5</td><td>20.0</td><td>16.7</td><td>21.1</td><td>22.2</td>
+              <td>23.1</td><td>26.0</td><td>7.6</td><td>4.2</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">GPT-4o</b></td>
+              <td>-</td>
+              <td>27.1</td><td>34.3</td><td>18.6</td><td>22.9</td>
+              <td>26.1</td><td>22.5</td><td>17.7</td><td>17.3</td><td>30.4</td><td>32.7</td><td>20.0</td><td>33.3</td><td>13.2</td><td>25.9</td>
+              <td>19.4</td><td>29.9</td><td>18.2</td><td>4.9</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">Gemini-2.0-Flash</b></td>
+              <td>-</td>
+              <td>35.2</td><td>38.8</td><td>19.5</td><td>24.8</td>
+              <td>34.8</td><td>21.1</td><td>27.5</td><td>18.7</td><td>21.7</td><td>28.9</td><td>13.3</td><td>33.3</td><td>18.4</td><td>33.3</td>
+              <td>27.6</td><td>27.9</td><td>18.2</td><td>4.7</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;"></td>
+              <td style="text-align: left; padding: 2px 10px;"><b class="">GPT-o4-mini</b></td>
+              <td>-</td>
+              <td>49.8</td><td>61.4</td><td>42.1</td><td>44.8</td>
+              <td>43.5</td><td>49.3</td><td>45.1</td><td>40.0</td><td>65.2</td><td>63.5</td><td>20.0</td><td>72.2</td><td>23.7</td><td>31.5</td>
+              <td>45.5</td><td>44.8</td><td>42.4</td><td>6.9</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const table1 = document.querySelector("#results");
+    const tbody1 = table1.querySelector("tbody");
+
+    const rows1 = Array.from(tbody1.querySelectorAll("tr"));
+
+    rows1.sort((a, b) => {
+      const valA = parseFloat(a.children[6].innerText) || 0;
+      const valB = parseFloat(b.children[6].innerText) || 0;
+      return valB - valA;
+    });
+
+    rows1.forEach((row, index) => {
+      const modelCell = row.children[1];
+      if (index === 0) {
+        modelCell.innerHTML += " 🥇";
+      } else if (index === 1) {
+        modelCell.innerHTML += " 🥈";
+      } else if (index === 2) {
+        modelCell.innerHTML += " 🥉";
+      }
+      tbody1.appendChild(row);
+    });
+
+    updateRowNumbersResults();
+
+    table1.addEventListener("click", updateRowNumbersResults);
+  });
+
+  function updateRowNumbersResults() {
+    const rows = document.querySelectorAll("#results tbody tr");
+    rows.forEach((row, index) => {
+      row.querySelector("td").innerText = index + 1;
+    });
+  }
+</script>
+
+<section class="section" style="background-color:#efeff081; padding-top: 3.5rem;">
+<!-- <section class="section"> -->
+  <div class="container">
+    
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+
+        <h2 class="title is-3" id="leaderboard">🏅 VideoMathQA Leaderboard - Direct Answering 🎯 </h2>
+        <div class="content">
+          <p class="mt-3">Accuracy on the VideoMathQA benchmark using direct answer format (no CoT reasoning) for MCQ and Multi-Binary tasks, with and without subtitles.<br>
+            Shows model performance across mathematical concepts and video lengths. This leaderboard is sorted by results on Multi-Binary with subtitles.
+          </p>
+
+          <table class="js-sort-table" id="results" style="margin-left: auto; margin-right: auto;">
+            <thead>
+              <tr>
+                <th rowspan="2" class="no-sort" style="vertical-align: middle; width: 50px;"><strong>#</strong></th>
+                <th rowspan="2" class="no-sort" style="vertical-align: middle; width: 180px;"><strong>Models</strong></th>
+                <th rowspan="2" class="no-sort" style="vertical-align: middle;"><strong>Size</strong></th>
+                <th colspan="2"><strong>MCQ</strong></th>
+                <th colspan="2"><strong>MBin</strong></th>
+                <th colspan="10"><strong>Mathematic Concepts</strong></th>
+                <th colspan="3"><strong>Duration</strong></th>
+              </tr>
+              <tr>
+                <th><strong>V</strong></th>
+                <th><strong>+Sub</strong></th>
+                <th><strong>V</strong></th>
+                <th><strong>+Sub</strong></th>
+                <th><strong>GAng</strong></th>
+                <th><strong>GAre</strong></th>
+                <th><strong>GLen</strong></th>
+                <th><strong>Chart</strong></th>
+                <th><strong>Stat</strong></th>
+                <th><strong>Arth</strong></th>
+                <th><strong>Topo</strong></th>
+                <th><strong>Grph</strong></th>
+                <th><strong>Cntg</strong></th>
+                <th><strong>Pzle</strong></th>
+                <th><strong>Short</strong></th>
+                <th><strong>Med</strong></th>
+                <th><strong>Long</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Claude-3.7-sonnet</b></td>
+                <td>-</td>
+                <td>26.2</td><td>27.1</td><td>8.6</td><td>9.5</td><td>17.4</td><td>9.9</td><td>5.9</td><td>8.0</td><td>17.4</td><td>11.5</td><td>13.3</td><td>5.6</td><td>5.3</td><td>9.3</td><td>8.2</td><td>11.0</td><td>9.1</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">GPT-4o</b></td>
+                <td>-</td>
+                <td>20.2</td><td>24.5</td><td>12.6</td><td>13.6</td><td>13.0</td><td>12.7</td><td>15.7</td><td>12.0</td><td>4.4</td><td>17.3</td><td>20.0</td><td>5.6</td><td>7.9</td><td>20.4</td><td>14.2</td><td>15.6</td><td>10.6</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Gemini-2.0-Flash</b></td>
+                <td>-</td>
+                <td>28.6</td><td>31.7</td><td>14.1</td><td>20.5</td><td>30.4</td><td>23.9</td><td>27.5</td><td>13.3</td><td>8.7</td><td>19.2</td><td>13.3</td><td>16.7</td><td>7.9</td><td>33.3</td><td>25.4</td><td>24.0</td><td>11.4</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Gemini-1.5-Flash</b></td>
+                <td>-</td>
+                <td>20.5</td><td>23.1</td><td>12.6</td><td>17.6</td><td>26.1</td><td>15.5</td><td>19.6</td><td>9.3</td><td>17.4</td><td>23.1</td><td>6.7</td><td>22.2</td><td>15.8</td><td>24.1</td><td>17.9</td><td>22.1</td><td>12.1</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Qwen2.5-VL</b></td>
+                <td>3B</td>
+                <td>26.9</td><td>27.6</td><td>19.3</td><td>19.6</td><td>26.1</td><td>23.9</td><td>23.5</td><td>21.3</td><td>34.8</td><td>17.3</td><td>26.7</td><td>11.1</td><td>15.8</td><td>20.4</td><td>25.4</td><td>23.4</td><td>15.9</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL2.5</b></td>
+                <td>2B</td>
+                <td>24.3</td><td>20.7</td><td>14.3</td><td>14.5</td><td>21.7</td><td>9.9</td><td>27.5</td><td>10.7</td><td>4.4</td><td>15.4</td><td>20.0</td><td>0.0</td><td>15.8</td><td>16.7</td><td>17.9</td><td>16.9</td><td>8.3</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">PLM-LLaMA</b></td>
+                <td>3B</td>
+                <td>22.9</td><td>22.1</td><td>13.6</td><td>15.0</td><td>17.4</td><td>16.9</td><td>25.5</td><td>8.0</td><td>26.1</td><td>9.6</td><td>20.0</td><td>11.1</td><td>13.2</td><td>13.0</td><td>16.4</td><td>18.8</td><td>9.1</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL3</b></td>
+                <td>2B</td>
+                <td>22.4</td><td>23.3</td><td>18.8</td><td>16.4</td><td>21.7</td><td>16.9</td><td>17.7</td><td>17.3</td><td>30.4</td><td>15.4</td><td>20.0</td><td>22.2</td><td>13.2</td><td>5.6</td><td>18.7</td><td>14.9</td><td>15.9</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">PLM-LLaMA</b></td>
+                <td>8B</td>
+                <td>22.1</td><td>23.1</td><td>16.7</td><td>14.5</td><td>13.0</td><td>11.3</td><td>17.7</td><td>13.3</td><td>17.4</td><td>17.3</td><td>20.0</td><td>11.1</td><td>10.5</td><td>16.7</td><td>16.4</td><td>14.9</td><td>12.1</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Oryx-1.5</b></td>
+                <td>7B</td>
+                <td>22.6</td><td>22.6</td><td>16.9</td><td>17.4</td><td>13.0</td><td>23.9</td><td>23.5</td><td>9.3</td><td>21.7</td><td>23.1</td><td>20.0</td><td>5.6</td><td>18.4</td><td>11.1</td><td>20.2</td><td>20.8</td><td>10.6</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">LLaVA-OV</b></td>
+                <td>7B</td>
+                <td>20.7</td><td>21.2</td><td>14.8</td><td>15.5</td><td>8.7</td><td>15.5</td><td>17.7</td><td>16.0</td><td>30.4</td><td>17.3</td><td>13.3</td><td>5.6</td><td>15.8</td><td>11.1</td><td>16.4</td><td>18.8</td><td>10.6</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">LongVA-DPO</b></td>
+                <td>7B</td>
+                <td>21.4</td><td>21.7</td><td>16.2</td><td>14.1</td><td>8.7</td><td>15.5</td><td>17.7</td><td>12.0</td><td>30.4</td><td>9.6</td><td>6.7</td><td>5.6</td><td>10.5</td><td>18.5</td><td>14.9</td><td>11.7</td><td>15.9</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Video-R1</b></td>
+                <td>7B</td>
+                <td>21.4</td><td>17.4</td><td>16.0</td><td>16.2</td><td>8.7</td><td>22.5</td><td>25.5</td><td>16.0</td><td>26.1</td><td>13.5</td><td>6.7</td><td>5.6</td><td>13.2</td><td>9.3</td><td>16.4</td><td>16.9</td><td>15.2</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL2.5</b></td>
+                <td>8B</td>
+                <td>24.3</td><td>24.8</td><td>18.6</td><td>18.6</td><td>26.1</td><td>19.7</td><td>17.7</td><td>17.3</td><td>21.7</td><td>19.2</td><td>26.7</td><td>11.1</td><td>10.5</td><td>20.4</td><td>17.9</td><td>22.7</td><td>14.4</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">LLaVA-Video</b></td>
+                <td>7B</td>
+                <td>26.9</td><td>26.4</td><td>20.0</td><td>19.3</td><td>13.0</td><td>21.1</td><td>31.4</td><td>17.3</td><td>17.4</td><td>15.4</td><td>26.7</td><td>5.6</td><td>18.4</td><td>18.5</td><td>23.9</td><td>20.8</td><td>12.9</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVideo2.5</b></td>
+                <td>8B</td>
+                <td>25.2</td><td>28.6</td><td>19.1</td><td>19.1</td><td>34.8</td><td>22.5</td><td>15.7</td><td>14.7</td><td>21.7</td><td>19.2</td><td>20.0</td><td>27.8</td><td>10.5</td><td>18.5</td><td>18.7</td><td>22.1</td><td>15.9</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Qwen2.5-VL</b></td>
+                <td>7B</td>
+                <td>26.7</td><td>27.9</td><td>19.8</td><td>19.1</td><td>8.7</td><td>25.4</td><td>25.5</td><td>18.7</td><td>13.0</td><td>23.1</td><td>13.3</td><td>5.6</td><td>15.8</td><td>16.7</td><td>22.4</td><td>19.5</td><td>15.2</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL3</b></td>
+                <td>8B</td>
+                <td>29.1</td><td>27.9</td><td>20.0</td><td>20.7</td><td>13.0</td><td>29.6</td><td>27.5</td><td>13.3</td><td>13.0</td><td>28.9</td><td>20.0</td><td>22.2</td><td>15.8</td><td>14.8</td><td>25.4</td><td>24.0</td><td>12.1</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">VideoChat-R1</b></td>
+                <td>7B</td>
+                <td>27.6</td><td>29.1</td><td>21.2</td><td>21.2</td><td>8.7</td><td>22.5</td><td>31.4</td><td>21.3</td><td>17.4</td><td>30.8</td><td>6.7</td><td>11.1</td><td>15.8</td><td>18.5</td><td>26.9</td><td>20.1</td><td>16.7</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Aria</b></td>
+                <td>34B</td>
+                <td>23.8</td><td>26.4</td><td>17.4</td><td>19.1</td><td>8.7</td><td>25.4</td><td>19.6</td><td>22.7</td><td>17.4</td><td>19.2</td><td>20.0</td><td>11.1</td><td>21.1</td><td>11.1</td><td>21.6</td><td>16.9</td><td>18.9</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Oryx-1.5</b></td>
+                <td>32B</td>
+                <td>30.5</td><td>33.1</td><td>22.9</td><td>24.1</td><td>30.4</td><td>39.4</td><td>31.4</td><td>10.7</td><td>17.4</td><td>21.2</td><td>6.7</td><td>11.1</td><td>15.8</td><td>33.3</td><td>27.6</td><td>29.9</td><td>13.6</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Qwen2.5-VL</b></td>
+                <td>32B</td>
+                <td>32.4</td><td>32.6</td><td>25.7</td><td>24.8</td><td>43.5</td><td>31.0</td><td>25.5</td><td>14.7</td><td>26.1</td><td>26.9</td><td>6.7</td><td>27.8</td><td>10.5</td><td>33.3</td><td>28.4</td><td>30.5</td><td>14.4</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL2.5</b></td>
+                <td>38B</td>
+                <td>31.0</td><td>33.6</td><td>24.1</td><td>26.0</td><td>43.5</td><td>38.0</td><td>39.2</td><td>8.0</td><td>13.0</td><td>32.7</td><td>6.7</td><td>11.1</td><td>18.4</td><td>29.6</td><td>34.3</td><td>31.8</td><td>10.6</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL3</b></td>
+                <td>38B</td>
+                <td>31.7</td><td>35.7</td><td>25.2</td><td>29.5</td><td>34.8</td><td>42.3</td><td>37.3</td><td>13.3</td><td>17.4</td><td>25.0</td><td>13.3</td><td>33.3</td><td>26.3</td><td>40.7</td><td>35.8</td><td>38.3</td><td>12.9</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">LLaVA-Video</b></td>
+                <td>72B</td>
+                <td>28.3</td><td>30.0</td><td>20.2</td><td>24.3</td><td>8.7</td><td>32.4</td><td>25.5</td><td>20.0</td><td>13.0</td><td>36.5</td><td>13.3</td><td>22.2</td><td>21.1</td><td>24.1</td><td>27.6</td><td>27.3</td><td>17.4</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">LLaVA-OV</b></td>
+                <td>72B</td>
+                <td>25.5</td><td>28.3</td><td>21.0</td><td>24.8</td><td>17.4</td><td>31.0</td><td>23.5</td><td>12.0</td><td>21.7</td><td>38.5</td><td>20.0</td><td>27.8</td><td>18.4</td><td>31.5</td><td>30.6</td><td>28.6</td><td>14.4</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL2.5</b></td>
+                <td>78B</td>
+                <td>33.3</td><td>31.7</td><td>28.3</td><td>27.9</td><td>39.1</td><td>36.6</td><td>31.4</td><td>18.7</td><td>26.1</td><td>32.7</td><td>26.7</td><td>27.8</td><td>13.2</td><td>27.8</td><td>33.6</td><td>35.1</td><td>13.6</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">Qwen2.5-VL</b></td>
+                <td>72B</td>
+                <td>36.9</td><td>37.6</td><td>26.0</td><td>27.9</td><td>26.1</td><td>36.6</td><td>31.4</td><td>17.3</td><td>30.4</td><td>38.5</td><td>20.0</td><td>16.7</td><td>18.4</td><td>29.6</td><td>34.3</td><td>29.2</td><td>19.7</td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: middle;"></td>
+                <td style="text-align: left; padding: 2px 10px;"><b class="">InternVL3</b></td>
+                <td>78B</td>
+                <td>33.3</td><td>31.7</td><td>28.3</td><td>27.9</td><td>39.1</td><td>36.6</td><td>31.4</td><td>18.7</td><td>26.1</td><td>32.7</td><td>26.7</td><td>27.8</td><td>13.2</td><td>27.8</td><td>33.6</td><td>35.1</td><td>13.6</td>
+              </tr>
+              
+            </tbody>                        
+        </table> 
+
+        <!-- <p style="margin-top: -20px;">
+          <strong style="color: #22a56e; font-size: 18px;" >Green date</strong> indicates the newly added/updated models  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          - indicates closed-source models
+        </p> -->
+        
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Figures from the Paper -->
+<section class="section">
+<!-- <section class="section" style="background-color:#efeff081; padding-top: 2.5rem;"> -->
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Overview and Analysis of VideoMathQA</h2>
+
+    <!-- Figure Row 1 -->
+    <div class="mb-6">
+      <h3 class="title is-5 has-text-centered">Examples from the Benchmark</h3>
+      <div class="has-text-centered" style="margin-bottom: 1.5rem;">
+        <img src="static/images/data_fig.png" alt="Figure 1" style="max-width: 90%; height: auto; border: none;">
+      </div>
+        <p class="has-text-justified mt-2" style="text-align: justify;">
+          Example questions from the <em>VideoMathQA</em> illustrating the three reasoning types: Problem Focused, Concept Transfer, and Deep Comprehension. The benchmark includes evolving dynamics in a video, complex text prompts, five multiple-choice options, the expert-annotated step-by-step reasoning to solve the given problem, and the final correct answer as shown above.
+        </p>
+    </div>
+
+    <!-- Figure Row 1 -->
+    <div class="mb-6">
+      <h3 class="title is-5 has-text-centered">Overview of VideoMathQA</h3>
+      <div class="has-text-centered" style="margin-bottom: 1.5rem;">
+        <img src="static/images/stat_fig.png" alt="Figure 1" style="max-width: 90%; height: auto; border: none;">
+      </div>
+        <p class="has-text-justified mt-2" style="text-align: justify;">
+          The figure illustrates <strong>a)</strong>&nbsp;Distribution of questions and model performance across ten mathematical concepts in the <em>VideoMathQA</em>. The consistently low performance across all concepts reveals a significant gap in the ability of the current multimodal models to perform mathematical reasoning over videos. <strong>b)</strong>&nbsp;Distribution of video durations in <em>VideoMathQA</em>, highlighting a diverse range from short clips of 10s to long-videos up to 1hr. <strong>c)</strong>&nbsp;The three-stage annotation pipeline for <em>VideoMathQA</em> was performed by expert science graduates, who annotated detailed step-by-step reasoning trails, with each stage governed by strict quality assessment.
+        </p>
+    </div>
+
+    <!-- Figure Row 2 -->
+    <div class="mb-6">
+      <h3 class="title is-5 has-text-centered">Effect of Video Length, Subtitles, and Frame Count on Multimodal Reasoning</h3>
+      <div class="has-text-centered" style="margin-bottom: 1.5rem;">
+        <img src="static/images/ablation1_fig.png" alt="Figure 2" style="max-width: 90%; height: auto;">
+      </div>
+        <p class="has-text-justified mt-2" style="text-align: justify;">
+          The figure illustrates <em>VideoMathQA</em> performance <strong>(a)</strong> Across video duration categories, <strong>(b)</strong> The impact of subtitles, and <strong>(c)</strong> Effect of varying the number of input frames. Overall, models perform best on medium-length videos, and overall accuracy improves with the inclusion of subtitles and more frames during evaluation.
+        </p>
+    </div>
+
+    <!-- Figure Row 3 -->
+    <div class="mb-6">
+      <h3 class="title is-5 has-text-centered">Understanding Model Limitations in VideoMathQA Reasoning</h3>
+      <div class="has-text-centered" style="margin-bottom: 1.5rem;">
+        <img src="static/images/ablation2_fig.png" alt="Figure 3" style="max-width: 90%; height: auto;">
+      </div>
+      <p class="has-text-justified mt-2" style="text-align: justify;">
+        The figure shows <strong>a)</strong>&nbsp;Comparison among vision-blind, image-only, and video models, highlighting the need for video-level understanding to perform well in <em>VideoMathQA</em>. <strong>b)</strong>&nbsp;Distribution of questions in <em>VideoMathQA</em> across three difficulty levels for varying reasoning depths, and the relationship between performance and question difficulty across top-performing models. <strong>c)</strong>&nbsp;Error analysis based on CoT step evaluation. Most model errors stem from misunderstanding the question, where models misinterpret what the question asks or overlook critical multimodal cues.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+</body>
+</html>
+
+<div style="text-align: center;">
+
+  <a href="https://www.ival-mbzuai.com" target="_blank">
+    <img src="static/images/IVAL_logo.png" width="200" height="100" alt="IVAL Logo">
+  </a>
+  
+  <a href="https://github.com/mbzuai-oryx" target="_blank">
+    <img src="static/images/Oryx_logo.jpeg" width="100" height="100" alt="Oryx Logo">
+  </a>
+
+  <a href="https://mbzuai.ac.ae" target="_blank">
+    <img src="static/images/MBZUAI_logo.png" width="360" height="85" alt="MBZUAI Logo">
+  </a>
+
+</div>
