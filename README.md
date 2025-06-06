@@ -4,11 +4,11 @@
     <img src="https://i.imgur.com/waxVImv.png" alt="Oryx Video-ChatGPT">
 </p>
 
-#### [Hanoona Rasheed](https://github.com/hanoonaR), [Abdelrahman Shaker](https://amshaker.github.io), Anqi Tang, [Muhammad Maaz](https://www.mmaaz60.com), [Ming-Hsuan Yang](https://scholar.google.com.pk/citations?user=p9-ohHsAAAAJ&hl=en), [Salman Khan](https://salman-h-khan.github.io/), [Fahad Khan](https://sites.google.com/view/fahadkhans/home)
+#### [Hanoona Rasheed](https://github.com/hanoonaR), [Abdelrahman Shaker](https://amshaker.github.io), [Anqi Tang](https://github.com/angelyimou), [Muhammad Maaz](https://www.mmaaz60.com), [Ming-Hsuan Yang](https://scholar.google.com.pk/citations?user=p9-ohHsAAAAJ&hl=en), [Salman Khan](https://salman-h-khan.github.io/), [Fahad Khan](https://sites.google.com/view/fahadkhans/home)
 
 #### **MBZUAI, University of California Merced, Google Research, Australian National University, Linköping University**
 
-[![Paper](https://img.shields.io/badge/📄_arXiv-Paper-blue)](https://arxiv.org/abs/2311.03356)
+[![Paper](https://img.shields.io/badge/📄_arXiv-Paper-blue)](https://arxiv.org/abs/2506.05349)
 [![Website](https://img.shields.io/badge/🌐_Project-Website-87CEEB)](https://mbzuai-oryx.github.io/VideoMathQA)
 [![Dataset](https://img.shields.io/badge/🤗_Dataset-Access-green)](https://huggingface.co/datasets/MBZUAI/VideoMathQA)
 [![🏅 Leaderboard (Reasoning)](https://img.shields.io/badge/🏅_Leaderboard-Reasoning-red)](https://hanoonar.github.io/VideoMathQA/#leaderboard-2)
@@ -84,7 +84,7 @@ We conduct an in-depth analysis of model limitations in <strong>VideoMathQA</str
   @article{rasheed2025videomathqa,
           title={VideoMathQA: Benchmarking Mathematical Reasoning via Multimodal Understanding in Videos},
           author={Rasheed, Hanoona and Shaker, Abdelrahman and Tang, Anqi and Maaz, Muhammad and Yang, Ming-Hsuan and Khan, Salman and Khan, Fahad S.},
-          journal={arXiv preprint arXiv:EDIT},
+          journal={arXiv preprint arXiv:2506.05349},
           year={2025}
   }
 ```
