@@ -13,7 +13,7 @@
 [![Dataset](https://img.shields.io/badge/🤗_Dataset-Access-green)](https://huggingface.co/datasets/MBZUAI/VideoMathQA)
 [![🏅 Leaderboard (Reasoning)](https://img.shields.io/badge/🏅_Leaderboard-Reasoning-red)](https://hanoonar.github.io/VideoMathQA/#leaderboard-2)
 [![🏅 Leaderboard (Direct)](https://img.shields.io/badge/🏅_Leaderboard-Direct-yellow)](https://hanoonar.github.io/VideoMathQA/#leaderboard)
-[![📊 Eval (LMMs-Eval)](https://github.com/EvolvingLMMs-Lab/lmms-eval/tree/main/lmms_eval/tasks/videomathqa)
+[![📊 Eval (LMMs-Eval)](https://img.shields.io/badge/📊_Eval-LMMs--Eval-orange)](https://github.com/EvolvingLMMs-Lab/lmms-eval/tree/main/lmms_eval/tasks/videomathqa)
 
 ---
 
